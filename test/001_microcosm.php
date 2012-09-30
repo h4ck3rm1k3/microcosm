@@ -19,11 +19,10 @@ class test  extends PHPUnit_Framework_TestCase
 
   public function testMapQuery() {
     $userInfo="";
-    $a=array(0,0,0,0);
+    $a=array("bbox" => "0,0,0,0");
     MapQuery($userInfo,$a);
 
-
-    $a=array(0,0,0,0);
+    $a=array("bbox" => "-180,-90,180,90");
     MapQuery($userInfo,$a);
 
     return 0;
