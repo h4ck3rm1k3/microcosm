@@ -22,8 +22,21 @@ function SqliteDropTableIfExists(&$dbh,$name)
 	if($ret===false) {$err= $dbh->errorInfo();throw new Exception($sql.",".$err[2]);}
 }
 
-chdir(dirname(realpath (__FILE__)));
-$dbh = new PDO('sqlite:rtreetest.db');
+function SqlliteLoadRtree() 
+{
+  chdir(dirname(realpath (__FILE__)));
+  $dbh = new PDO('sqlite:rtreetest.db');
+
+  //$sql="select load_extension('librtree.so');";
+  //$sql="select load_extension('libspatialite.so');";
+  //try 
+  //{
+  //  $ret = $dbh->exec($sql);
+  //}
+  //catch (Exception $e) {
+  //    echo 'Caught exception: ',  $e->getMessage(), "\n";
+  //}
+
 try
 {
 SqliteDropTableIfExists($dbh, "test");
@@ -38,5 +51,8 @@ $ret = $dbh->exec($sql);
 echo "Result:\n";
 if($ret===false) {$err= $dbh->errorInfo();echo ($sql.",".$err[2]."\n"); exit(0);}
 echo "rtree ok\n";
+}
+
+SqlliteLoadRtree( );
 
 ?>

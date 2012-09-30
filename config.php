@@ -9,8 +9,8 @@ define("LICENSE_HUMAN","TBC");
 define("INSTALL_FOLDER_DEPTH",2);
 set_time_limit(60);
 
-define("BACKEND_DATABASE","sqlite");
-#define("BACKEND_DATABASE","mysql");
+//define("BACKEND_DATABASE","sqlite");
+define("BACKEND_DATABASE","mysql");
 
 define("MYSQL_DB_NAME","db_map");
 define("MYSQL_SERVER","localhost");
